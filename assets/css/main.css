@@ -3094,8 +3094,8 @@
 	}
 
 	#header {
-		background: #1c1c1c;
-		color: #d5d5d5;
+		background: #ffffffaf;
+		color: #494949;
 		cursor: default;
 		height: 5em;
 		left: 0;
@@ -3133,7 +3133,7 @@
 			padding: 0;
 			position: absolute;
 			top: 0;
-			color: #dbdbdb;
+			color: #252525;
 			font-size: 1.75em;
 			text-transform: none;
 			font-weight: normal;
@@ -3151,7 +3151,7 @@
 			transition: color 0.2s ease-in-out;
 			display: inline-block;
 			padding: 0 2em;
-			color: #ffffff;
+			color: #2e2e2e;
 			text-decoration: none;
 			text-transform: uppercase;
 			font-weight: 700;
@@ -3159,7 +3159,7 @@
 		}
 
 			#header a:hover {
-				color: rgba(255, 255, 255, 0.75);
+				color: rgba(110, 110, 110, 0.75);
 			}
 
 			#header a:last-child {
@@ -3186,6 +3186,7 @@
 
 	#nav {
 		display: inline-block;
+		
 	}
 
 		@media screen and (max-width: 980px) {
@@ -3243,7 +3244,7 @@
 		}
 
 		.navPanelToggle *:before {
-			color: #fff;
+			color: rgb(51, 51, 51);
 			display: block;
 			font-size: 16px;
 			height: 2.25em;
@@ -3271,7 +3272,7 @@
 		right: 0;
 		top: 0;
 		background: #1c1c1c;
-		color: #fff;
+		color: rgb(43, 43, 43);
 		height: 100%;
 		max-width: 80%;
 		width: 20em;
@@ -3292,7 +3293,7 @@
 
 		#navPanel a:not(.close) {
 			border-top: solid 1px rgba(255, 255, 255, 0.1);
-			color: #fff;
+			color: rgb(51, 51, 51);
 			font-weight: 700;
 			display: block;
 			padding: 0.75em 0;
@@ -3371,19 +3372,19 @@
 	}
 
 		#banner input, #banner select, #banner textarea {
-			color: #ffffff;
+			color: #363636;
 		}
 
 		#banner a {
-			color: #ffffff;
+			color: #363636;
 		}
 
 		#banner strong, #banner b {
-			color: #ffffff;
+			color: #383838;
 		}
 
 		#banner h1, #banner h2, #banner h3, #banner h4, #banner h5, #banner h6 {
-			color: #fff;
+			color: rgb(255, 255, 255);
 		}
 
 		#banner blockquote {
@@ -3739,10 +3740,10 @@
 /* Footer */
 
 	#footer {
-		background-color: #666666;
+		background-color: #ffffff;
 		color: #000000;
-		padding: 1em 0 .001em 0;
-		background: #838383;
+		padding: 0em 0 0em 0;
+		background: #ffffff;
 	}
 
 		#footer input, #footer select, #footer textarea {
