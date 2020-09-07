@@ -1,115 +1,126 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en-us">
 
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Jefrie</title>
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+      body {
+        margin: 0;
+        background: #444;
+      }
+      #gameContainer {
+        width: 100vw;
+        height: 100vh;
+      }
+      canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      /* try to handle mobile dialog */
+      canvas + * {
+        z-index: 2;
+      }
+      .logo {
+          display: block;
+          max-width: 100vw;
+          max-height: 70vh;
+      }
 
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a href="index.html" class="logo">Jack Mechem</a>
-					<nav id="nav">
-						<a href="index.html">Home</a>
-						<a href="about.html">About</a>
-						<a href="mysites.html">My Websites</a>
-						<a href="https://github.com/JackMechem" target="_blank" class="icon fa-github"><span class="label">Github</span></a>
-					</nav>
-				</div>
-			</header>
-			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+      .progress {
+          margin: 1.5em;
+          border: 1px solid white;
+          width: 50vw;
+          display: none;
+      }
+      .progress .full {
+          margin: 2px;
+          background: white;
+          height: 1em;
+          transform-origin: top left;
+      }
 
-		<!-- Banner -->
-			<section id="banner">
-				<div class="inner">
-					<h1>Jack Mechem -- <span>Website Designer - <br />
-					Drummer - Game Designer</span></h1>
-					<ul class="actions">
-						<li><a href="https://www.fiverr.com/share/WbeQZL" target="_blank" class="button alt">Get Your Website</a></li>
-					</ul>
-				</div>
-			</section>
+      #loader {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
 
-		<!-- One -->
-			<section id="one">
-				<div class="inner">
-					<header>
-						<h2>Jack Mechem</h2>
-					</header>
-					<p>
-						Websites are an important aspect of professionalism. Wbsites should look good and be cheap. They sould also be easy to make but unfortuatly even with services like squarespace it is still
-						hard to make a website with out having any knoledge of coding.
-					</p>
-					
-				</div>
-			</section>
+      .spinner,
+      .spinner:after {
+        border-radius: 50%;
+        width: 5em;
+        height: 5em;
+      }
+      .spinner {
+        margin: 10px;
+        font-size: 10px;
+        position: relative;
+        text-indent: -9999em;
+        border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+        border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+        border-left: 1.1em solid #ffffff;
+        transform: translateZ(0);
+        animation: spinner-spin 1.1s infinite linear;
+      }
+      @keyframes spinner-spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
 
+    </style>
+  </head>
 
+  <body>
+    <div id="gameContainer"></div>
+    <div id="loader">
+      <img class="logo" src="logo.png">
+      <div class="spinner"></div>
+      <div class="progress"><div class="full"></div></div>
+    </div>
+  </body>
 
-		<!-- Three -->
-			<section id="three">
-				<div class="inner">
-					<article>
-						<div class="content">
-							
-							<header>
-								<h3>Squarespace Site</h3>
-							</header>
-							<p>
-								Want a website that is easy to edit? Signup for squarespace and click the button below. You don't even have to pay for
-								squarespace until I am finished building it.
-							</p>
-							<ul class="actions">
-								<li><a href="https://www.fiverr.com/share/WbeQZL" target="_blank" class="button alt">Buy a Squarespace Site</a></li>
-							</ul>
-						</div>
-					</article>
-					<article>
-						<div class="content">
-							
-							<header>
-								<h3>My Github</h3>
-							</header>
-							<p>I post all my projects on Github for anyone to download. Click the button below to visit my Github page.</p>
-							<ul class="actions">
-								<li><a href="https://github.com/JackMechem" target="_blank" class="button alt">My GitHub</a></li>
-							</ul>
-						</div>
-					</article>
-					<article>
-					<div class="content">
-							
-							<header>
-								<h3>Coded Site</h3>
-							</header>
-							<p>Need your website to be coded? Click the button below to get your website coded! 
-								Note that coding a website takes a long time and it will also cost the most.
-							</p>
-							<ul class="actions">
-								<li><a href="https://www.fiverr.com/s2/40c386af56" target="_blank" class="button alt">Buy a Coded Site</a></li>
-							</ul>
-						</div>
-					</article>
-				</div>
-			</section>
+  <script src="Build/UnityLoader.js"></script>
+  <script>
+  var gameInstance = UnityLoader.instantiate("gameContainer", "Build/Alpha3-2GL.json", {onProgress: UnityProgress});
+  function UnityProgress(gameInstance, progress) {
+    if (!gameInstance.Module) {
+      return;
+    }
+    const loader = document.querySelector("#loader");
+    if (!gameInstance.progress) {
+      const progress = document.querySelector("#loader .progress");
+      progress.style.display = "block";
+      gameInstance.progress = progress.querySelector(".full");
+      loader.querySelector(".spinner").style.display = "none";
+    }
+    gameInstance.progress.style.transform = `scaleX(${progress})`;
+    if (progress === 1 && !gameInstance.removeTimeout) {
+      gameInstance.removeTimeout = setTimeout(function() {
+          loader.style.display = "none";
+      }, 2000);
+    }
+  }
+  </script>
 
-		<!-- Footer -->
-		<section id="footer">
-			<div class="inner">
-				<div class="copyright">
-					&copy; Jack Mechem
-				</div>
-			</div>
-		</section>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
 </html>
+
