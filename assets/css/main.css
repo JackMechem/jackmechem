@@ -3094,7 +3094,7 @@
 	}
 
 	#header {
-		background: #ffffffaf;
+		background: #333333f5;
 		color: #494949;
 		cursor: default;
 		height: 5em;
@@ -3133,7 +3133,7 @@
 			padding: 0;
 			position: absolute;
 			top: 0;
-			color: #1d1dffc4;
+			color: #ff0000c4;
 			font-size: 1.75em;
 			text-transform: none;
 			font-weight: normal;
@@ -3215,7 +3215,7 @@
 			font-style: normal;
 			font-weight: normal;
 			text-transform: none !important;
-			color: rgb(0, 0, 0);
+			color: rgb(97, 97, 97);
 			display: block;
 			font-size: 16px;
 			height: 2.25em;
